@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 0 auto 20px;
+            padding: 10px;
+            text-align: center;
+            background-color: rgb(128, 0, 255);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .appointments {
+            margin-top: 20px;
+        }
+        .appointment {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Appointment Dashboard</h1>
+        <a href="/form" class="button">Book an Appointment</a>
+
+        <div class="appointments">
+            <h2>Appointment List</h2>
+            <div class="appointment" th:each="appointment : ${appointments}">
+                <p><strong>Name:</strong> [[${appointment.name}]]</p>
+                <p><strong>Email:</strong> [[${appointment.email}]]</p>
+                <p><strong>Phone:</strong> [[${appointment.phone}]]</p>
+                <p><strong>Reason:</strong> [[${appointment.reason}]]</p>
+                <p><strong>Preferred Date:</strong> [[${appointment.preferredDate}]]</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

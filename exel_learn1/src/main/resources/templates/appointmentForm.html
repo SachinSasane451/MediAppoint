@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: rgb(128, 0, 255);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: rgb(128, 0, 255);
+        }
+        .success-message {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        .download-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Appointment</h1>
+        <form action="/save" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="phone">Phone:</label><br>
+            <input type="text" id="phone" name="phone"><br>
+
+            <label for="reason">Reason for Appointment:</label><br>
+            <textarea id="reason" name="reason"></textarea><br>
+
+            <label for="preferredDate">Preferred Date:</label><br>
+            <input type="date" id="preferredDate" name="preferredDate"><br><br>
+
+            <input type="submit" value="Book Appointment">
+        </form>
+
+        <!-- Display success message if redirected from form submission -->
+        <div th:if="${message}" class="success-message">
+            <p th:text="${message}"></p>
+        </div>
+
+        <!-- Download Appointments link -->
+        <a href="/export" class="download-link">Download Appointments</a>
+    </div>
+</body>
+</html>
